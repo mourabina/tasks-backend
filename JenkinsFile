@@ -51,6 +51,14 @@ pipeline {
 				}
 				
 			}
+		}
+		stage ('Funtional Test') {
+			steps {
+				dir('fuincional-Test'){
+					git credentialsId: 'LoginGit', url: 'https://github.com/mourabina/TestesFuncionais.git'
+					bat 'mvn test'
+				}
+			}
 		}	
 	}
 }
